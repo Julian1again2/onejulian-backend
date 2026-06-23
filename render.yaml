@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: onejulian-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: onejulian-db
+          property: connectionString
+
+databases:
+  - name: onejulian-db
+    plan: free
