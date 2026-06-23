@@ -3,3 +3,83 @@ INFO:     Started server process [24365]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37774 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37776 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37790 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:37806 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:37810 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:37826 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37836 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37838 - "POST /api/v1/deliveries/ HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:37848 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37862 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37874 - "GET /api/v1/deliveries/999999 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:37890 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37898 - "POST /api/v1/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37910 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37916 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37932 - "GET /api/v1/clients/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37934 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37946 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37954 - "POST /api/v1/deliveries/ HTTP/1.1" 201 Created
+INFO:     127.0.0.1:37958 - "GET /api/v1/deliveries/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37972 - "GET /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37986 - "PATCH /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38002 - "DELETE /api/v1/deliveries/1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:38018 - "GET /api/v1/deliveries/1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59594 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59602 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59604 - "GET /api/v1/clients/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59616 - "POST /api/v1/deliveries/ HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59632 - "GET /api/v1/deliveries/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59634 - "GET /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59642 - "PATCH /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59650 - "DELETE /api/v1/deliveries/1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:59666 - "GET /api/v1/deliveries/1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59678 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59680 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59694 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59708 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59714 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:59730 - "POST /api/v1/deliveries/ HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:59744 - "GET /api/v1/deliveries/999999 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58818 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58824 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58828 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58840 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58852 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58854 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58860 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58870 - "POST /api/v1/deliveries/ HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:58874 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58882 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58898 - "GET /api/v1/deliveries/999999 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58906 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58914 - "POST /api/v1/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58930 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58936 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58942 - "GET /api/v1/clients/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58944 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58950 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58958 - "POST /api/v1/deliveries/ HTTP/1.1" 201 Created
+INFO:     127.0.0.1:58962 - "GET /api/v1/deliveries/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58968 - "GET /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58980 - "PATCH /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58982 - "DELETE /api/v1/deliveries/1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:58986 - "GET /api/v1/deliveries/1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59002 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59010 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59022 - "GET /api/v1/clients/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59032 - "POST /api/v1/deliveries/ HTTP/1.1" 201 Created
+INFO:     127.0.0.1:59042 - "GET /api/v1/deliveries/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59050 - "GET /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59054 - "PATCH /api/v1/deliveries/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59062 - "DELETE /api/v1/deliveries/1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:59064 - "GET /api/v1/deliveries/1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59078 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57576 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57584 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57594 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57596 - "GET /api/v1/clients/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57602 - "POST /api/v1/deliveries/ HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:57612 - "GET /api/v1/deliveries/999999 HTTP/1.1" 404 Not Found
