@@ -7,3 +7,4 @@ email-validator
 passlib[bcrypt]
 python-jose[cryptography]
 psycopg2-binary==2.9.9
+typing-extensions>=4.12.2
