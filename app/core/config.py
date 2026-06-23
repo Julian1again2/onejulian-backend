@@ -7,7 +7,6 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./onejulian.db"
 
     class Config:
-        env_file = ".env"
         case_sensitive = False
 
 
