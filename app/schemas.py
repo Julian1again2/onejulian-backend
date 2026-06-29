@@ -59,3 +59,41 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     sub: Optional[str] = None
+
+
+class PaymentBase(BaseModel):
+    order_id: int
+    amount_usd: float
+    status: str = "created"
+
+
+class PaymentCreate(PaymentBase):
+    pass
+
+
+class PaymentOut(PaymentBase):
+    id: int
+    owner_id: int
+    created_at: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True
+
+
+class RefundBase(BaseModel):
+    payment_id: int
+    amount_usd: float
+    status: str = "created"
+
+
+class RefundCreate(RefundBase):
+    pass
+
+
+class RefundOut(RefundBase):
+    id: int
+    owner_id: int
+    created_at: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True

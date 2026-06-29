@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
@@ -15,6 +15,7 @@ class User(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     deliveries = relationship("Delivery", back_populates="owner")
+    payments = relationship("Payment", back_populates="owner")
 
 
 class Delivery(Base):
@@ -28,3 +29,30 @@ class Delivery(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     owner = relationship("User", back_populates="deliveries")
+
+
+class Payment(Base):
+    __tablename__ = "payments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    order_id = Column(Integer, nullable=False, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    amount_usd = Column(Float, nullable=False)
+    status = Column(String, nullable=False, default="created")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    owner = relationship("User", back_populates="payments")
+    refunds = relationship("Refund", back_populates="payment")
+
+
+class Refund(Base):
+    __tablename__ = "refunds"
+
+    id = Column(Integer, primary_key=True, index=True)
+    payment_id = Column(Integer, ForeignKey("payments.id"), nullable=False, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    amount_usd = Column(Float, nullable=False)
+    status = Column(String, nullable=False, default="created")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    payment = relationship("Payment", back_populates="refunds")

@@ -71,3 +71,28 @@ def test_duplicate_registration_returns_conflict_or_validation(base_url):
         timeout=TIMEOUT,
     )
     assert second.status_code in (400, 409, 422), second.text
+
+def test_policy_evaluate_sparse_payload_returns_decision(base_url, auth_headers):
+    response = requests.post(
+        f"{base_url}/api/v1/policy/evaluate",
+        json={"type": "payment"},
+        headers={**auth_headers, "Content-Type": "application/json"},
+        timeout=TIMEOUT,
+    )
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert "decision" in body
+    assert "rule_version_id" in body
+
+def test_policy_learn_sparse_payload_returns_rejected_candidate(base_url, auth_headers):
+    response = requests.post(
+        f"{base_url}/api/v1/policy/learn",
+        json={"name": "missing fields"},
+        headers={**auth_headers, "Content-Type": "application/json"},
+        timeout=TIMEOUT,
+    )
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert body["status"] == "rejected"
+    assert body["approved"] is False
+    assert "candidate" in body

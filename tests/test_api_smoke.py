@@ -54,3 +54,42 @@ def test_delivery_crud_flow(base_url, auth_headers):
     confirm = requests.get(f"{base_url}/api/v1/deliveries/{delivery_id}", headers=auth_headers, timeout=TIMEOUT)
     assert confirm.status_code == 404, confirm.text
     assert confirm.json()["detail"] == "Delivery not found"
+
+def test_policy_evaluate_smoke(base_url, auth_headers):
+    response = requests.post(
+        f"{base_url}/api/v1/policy/evaluate",
+        json={"id": "tx-demo", "type": "payment", "rail": "ach", "amount": 25, "country": "US"},
+        headers={**auth_headers, "Content-Type": "application/json"},
+        timeout=TIMEOUT,
+    )
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert body["decision"] == "review"
+    assert body["rule_version_id"] == 1
+    assert "input_hash" in body
+    assert "state_hash" in body
+
+def test_policy_learn_smoke(base_url, auth_headers):
+    response = requests.post(
+        f"{base_url}/api/v1/policy/learn",
+        json={
+            "rule_key": "ach.us.review",
+            "name": "US ACH review",
+            "scope": "payment",
+            "action": "review",
+            "condition": {"rail": "ach", "country": "US"},
+            "min_hits": 1,
+            "min_block_rate": 0.0,
+            "next_version": 2,
+            "history": [
+                {"id": "tx-demo", "type": "payment", "rail": "ach", "amount": 25, "country": "US"}
+            ],
+        },
+        headers={**auth_headers, "Content-Type": "application/json"},
+        timeout=TIMEOUT,
+    )
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert body["status"] == "approved"
+    assert body["approved"] is True
+    assert body["rule"]["status"] == "active"
